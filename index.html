@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate student total marks, percentage, grade, and result.">
+  <title>Student Marks Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <div class="logo" aria-hidden="true">🎓</div>
+      <p class="eyebrow">STUDENT TOOLKIT</p>
+      <h1>Student Marks Calculator</h1>
+      <p class="subtitle">Enter your subject marks to calculate your total, percentage, grade, and result.</p>
+    </header>
+
+    <section class="calculator card" aria-labelledby="form-title">
+      <h2 id="form-title">Enter Your Marks</h2>
+      <form id="marks-form">
+        <div class="field">
+          <label for="student-name">Student name <span class="optional">(optional)</span></label>
+          <input id="student-name" name="student-name" type="text" placeholder="Enter your name" maxlength="60">
+        </div>
+        <div class="field">
+          <label for="roll-number">Roll number <span class="optional">(optional)</span></label>
+          <input id="roll-number" name="roll-number" type="text" placeholder="Enter your roll number" maxlength="30">
+        </div>
+
+        <div class="marks-heading">
+          <h3>Subject marks</h3>
+          <p>Enter marks from 0 to 100.</p>
+        </div>
+        <div class="subjects">
+          <div class="field">
+            <label for="subject-1">Subject 1</label>
+            <input id="subject-1" class="mark-input" name="subject-1" type="number" min="0" max="100" step="1" placeholder="0–100" required>
+          </div>
+          <div class="field">
+            <label for="subject-2">Subject 2</label>
+            <input id="subject-2" class="mark-input" name="subject-2" type="number" min="0" max="100" step="1" placeholder="0–100" required>
+          </div>
+          <div class="field">
+            <label for="subject-3">Subject 3</label>
+            <input id="subject-3" class="mark-input" name="subject-3" type="number" min="0" max="100" step="1" placeholder="0–100" required>
+          </div>
+          <div class="field">
+            <label for="subject-4">Subject 4</label>
+            <input id="subject-4" class="mark-input" name="subject-4" type="number" min="0" max="100" step="1" placeholder="0–100" required>
+          </div>
+          <div class="field">
+            <label for="subject-5">Subject 5</label>
+            <input id="subject-5" class="mark-input" name="subject-5" type="number" min="0" max="100" step="1" placeholder="0–100" required>
+          </div>
+        </div>
+
+        <p id="error-message" class="error-message" role="alert" aria-live="polite"></p>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Calculate Result</button>
+          <button class="btn btn-secondary" type="reset" id="reset-button">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="result-card" class="result-card card" aria-labelledby="result-title" hidden aria-live="polite">
+      <div class="result-top">
+        <div>
+          <p class="eyebrow">YOUR SUMMARY</p>
+          <h2 id="result-title">Calculation Result</h2>
+          <p id="student-summary" class="student-summary"></p>
+        </div>
+        <div id="result-badge" class="result-badge">PASS</div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-label">Total marks</span>
+          <strong id="total-marks">0 / 500</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Percentage</span>
+          <strong id="percentage">0%</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Grade</span>
+          <strong id="grade">A</strong>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Overall score</span><span id="progress-text">0%</span></div>
+        <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+      </div>
+      <h3>Subject-wise results</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Subject</th><th>Marks</th><th>Status</th></tr></thead>
+          <tbody id="subject-results"></tbody>
+        </table>
+      </div>
+      <p id="grade-note" class="grade-note"></p>
+      <button class="btn btn-primary print-button" type="button" id="print-button">Print Result</button>
+    </section>
+
+    <footer>
+      <p>Student Marks Calculator · Made for learning</p>
+      <p class="small-note">Default rule: 35 marks out of 100 is the pass mark for each subject. Check your institution's rules.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
